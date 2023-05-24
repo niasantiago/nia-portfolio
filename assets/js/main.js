@@ -229,84 +229,86 @@
 
 				}
 
-		});
+		}); 
 
-	// Menu.
-		var $menu = $('#menu'),
-			$menuInner;
+		
 
-		$menu.wrapInner('<div class="inner"></div>');
-		$menuInner = $menu.children('.inner');
-		$menu._locked = false;
+	// // Menu.
+	// 	var $menu = $('#menu'),
+	// 		$menuInner;
 
-		$menu._lock = function() {
+	// 	$menu.wrapInner('<div class="inner"></div>');
+	// 	$menuInner = $menu.children('.inner');
+	// 	$menu._locked = false;
 
-			if ($menu._locked)
-				return false;
+	// 	$menu._lock = function() {
 
-			$menu._locked = true;
+	// 		if ($menu._locked)
+	// 			return false;
 
-			window.setTimeout(function() {
-				$menu._locked = false;
-			}, 350);
+	// 		$menu._locked = true;
 
-			return true;
+	// 		window.setTimeout(function() {
+	// 			$menu._locked = false;
+	// 		}, 350);
 
-		};
+	// 		return true;
 
-		$menu._show = function() {
+	// 	};
 
-			if ($menu._lock())
-				$body.addClass('is-menu-visible');
+	// 	$menu._show = function() {
 
-		};
+	// 		if ($menu._lock())
+	// 			$body.addClass('is-menu-visible');
 
-		$menu._hide = function() {
+	// 	};
 
-			if ($menu._lock())
-				$body.removeClass('is-menu-visible');
+	// 	$menu._hide = function() {
 
-		};
+	// 		if ($menu._lock())
+	// 			$body.removeClass('is-menu-visible');
 
-		$menu._toggle = function() {
+	// 	};
 
-			if ($menu._lock())
-				$body.toggleClass('is-menu-visible');
+	// 	$menu._toggle = function() {
 
-		};
+	// 		if ($menu._lock())
+	// 			$body.toggleClass('is-menu-visible');
 
-		$menuInner
-			.on('click', function(event) {
-				event.stopPropagation();
-			})
-			.on('click', 'a', function(event) {
+	// 	};
 
-				var href = $(this).attr('href');
+	// 	$menuInner
+	// 		.on('click', function(event) {
+	// 			event.stopPropagation();
+	// 		})
+	// 		.on('click', 'a', function(event) {
 
-				event.preventDefault();
-				event.stopPropagation();
+	// 			var href = $(this).attr('href');
 
-				// Hide.
-					$menu._hide();
+	// 			event.preventDefault();
+	// 			event.stopPropagation();
 
-				// Redirect.
-					window.setTimeout(function() {
-						window.location.href = href;
-					}, 250);
+	// 			// Hide.
+	// 				$menu._hide();
 
-			});
+	// 			// Redirect.
+	// 				window.setTimeout(function() {
+	// 					window.location.href = href;
+	// 				}, 250);
 
-		$menu
-			.appendTo($body)
-			.on('click', function(event) {
+	// 		});
 
-				event.stopPropagation();
-				event.preventDefault();
+	// 	$menu
+	// 		.appendTo($body)
+	// 		.on('click', function(event) {
 
-				$body.removeClass('is-menu-visible');
+	// 			event.stopPropagation();
+	// 			event.preventDefault();
 
-			})
-			.append('<a class="close" href="#menu">Close</a>');
+	// 			$body.removeClass('is-menu-visible');
+
+	// 		})
+	// 		.append('<a class="close" href="#menu">Close</a>');
 
 		$body
 			.on('click', 'a[href="#menu"]', function(event) {
